@@ -1,0 +1,84 @@
+//REGISTER ADMIN
+POST http://localhost:5000/register 
+Content-Type: application/json 
+
+{
+    "nama": "admin",
+    "email": "maua1@gmail.com",
+    "password": "admin1",
+    "confPassword":"admin1",
+    "role": "Admin"
+}
+//LOGIN ADMIN
+###
+POST http://localhost:5000/login
+Content-Type: application/json 
+
+{
+    "nama": "namad",
+    "password": "gaulsedunia"
+}
+
+###
+//GET ALL USER 
+GET http://localhost:5000/users
+
+###
+//GET USER BY ID
+GET http://localhost:5000/users/a8f271e5-b3eb-4f65-abf5-00a67b73344e
+Content-Type: application/json 
+
+//Logout
+###
+DELETE http://localhost:5000/users/a8f271e5-b3eb-4f65-abf5-00a67b73344e
+Content-Type: application/json 
+
+###
+//Logout
+DELETE http://localhost:5000/logout
+Content-Type: application/json 
+
+
+###
+//SIPA AKU ?
+GET http://localhost:5000/Me
+
+###
+//Buat surat izin
+POST http://localhost:5000/suratizin
+Content-Type: application/json 
+
+{
+    "nama_perizinan": "namad",
+    "pic": "maulfcom",
+    "departemen": "gaulsedunia",
+    "tanggalExp":"2023-08-10",
+    "reminder":"2023-08-10",
+    "uploadFile": "uploadFile"
+}
+
+###
+//GET SEMUA SURAT IZIN
+GET http://localhost:5000/suratizin
+###
+//GET SURAT IZIN BY ID
+GET http://localhost:5000/suratizin/6aba3c2e-4f69-441e-8f3f-123b4ff90642
+Content-Type: application/json 
+
+###
+//UPDATE SURAT IZIN
+PATCH http://localhost:5000/suratizin/6aba3c2e-4f69-441e-8f3f-123b4ff90642
+Content-Type: application/json 
+
+{
+    "nama_perizinan": "namad",
+    "pic": "maulfcom",
+    "departemen": "HIDUPP",
+    "tanggalExp":"2023-08-10",
+    "reminder":"2023-08-10",
+    "uploadFile": "uploadFile"
+}
+###
+//HAPUS SURAT IZIN
+DELETE http://localhost:5000/suratizin/6aba3c2e-4f69-441e-8f3f-123b4ff90642
+Content-Type: application/json 
