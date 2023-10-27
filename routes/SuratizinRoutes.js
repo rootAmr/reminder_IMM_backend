@@ -4,27 +4,18 @@ import {
     getSuratizinById,
     updateSuratizin,
     deleteSuratizin,
-    createSuratizin
+    createSuratizin,
+    getDepartemen
 } from "../controllers/Suratizin.js";
 import { verifyUser, adminOnly  } from "../middleware/AuthUser.js";
-import multer from "multer";
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, './public/uploads'); // Set the destination folder
-    },
-    filename: function (req, file, cb) {
-        cb(null, file.fieldname + '-' + Date.now());
-    }
-});
-
-const upload = multer({ storage: storage });
-
 const router = express.Router();
 
-router.get('/suratizin',verifyUser,adminOnly,getSuratizin);
-router.get('/suratizin/:id',verifyUser,adminOnly,getSuratizinById);
-router.post('/suratizin', verifyUser,adminOnly,createSuratizin);
-router.patch('/suratizin/:id',verifyUser,updateSuratizin);
-router.delete('/suratizin/:id',verifyUser,deleteSuratizin);
+router.get('/suratizin', verifyUser,getSuratizin);
+router.get('/suratizin_user',getSuratizin);
+router.get('/getdepartemen',verifyUser, getDepartemen);
+router.get('/suratizin/:id', verifyUser,getSuratizinById);
+router.post('/suratizin', verifyUser,createSuratizin);
+router.patch('/suratizin/:id', verifyUser, updateSuratizin);
+router.delete('/suratizin/:id', verifyUser, deleteSuratizin);
 
 export default router;

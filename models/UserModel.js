@@ -34,6 +34,14 @@ const Users = db.define('users', {
             notEmpty: true
         }
     },
+    departemen: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+            len: [3, 100]
+        }
+    },
     role: {
         type: DataTypes.STRING,
         allowNull: false,

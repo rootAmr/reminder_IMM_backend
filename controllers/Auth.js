@@ -1,10 +1,10 @@
-import User from "../models/UserModel.js";
+import Users from "../models/UserModel.js";
 import argon2 from "argon2";
 
 export const Login = async (req, res) => {
-    const user = await User.findOne({
+    const user = await Users.findOne({
         where: {
-            nama: req.body.nama
+            email: req.body.email
         }
     });
     if (!user) return res.status(404).json({ msg: "User tidak ditemukan" });
@@ -12,17 +12,18 @@ export const Login = async (req, res) => {
     if (!match) return res.status(400).json({ msg: "Wrong Password" });
     req.session.userId = user.uuid;
     const uuid = user.uuid;
-    const nama = user.nama;  // Mengambil nilai dari properti 'nama' dari objek 'user'
+    const email = user.email;
+    const departemen = user.departemen;
     const role = user.role;
-    res.status(200).json({ uuid, nama, role });
+    res.status(200).json({ uuid, email, role, departemen });
 }
 
 export const Me = async (req, res) =>{
     if(!req.session.userId){
         return res.status(401).json({msg: "Mohon login ke akun Anda!"});
     }
-    const user = await User.findOne({
-        attributes:['uuid','nama','role'],
+    const user = await Users.findOne({
+        attributes:['uuid','nama','role','departemen'],
         where: {
             uuid: req.session.userId
         }

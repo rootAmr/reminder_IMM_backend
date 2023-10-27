@@ -14,7 +14,7 @@ const Suratizin = db.define('surat_izin', {
             notEmpty: true
         }
     },
-    nama_perizinan: {
+    institution: {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
@@ -22,7 +22,43 @@ const Suratizin = db.define('surat_izin', {
             len: [3, 100]
         }
     },
+    period: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+            len: [3, 100]
+        }
+    },
+    name_of_report: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+            len: [2, 100]
+        }
+    },
     pic: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+            len: [2, 100]
+        }
+    },  
+    departemen: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+            len: [3, 100]
+        }
+    },
+    from_email: {
+        type: Sequelize.STRING,
+        allowNull: false,
+    },
+    cc: {
         type: Sequelize.STRING,
         allowNull: false,
         validate: {
@@ -32,48 +68,182 @@ const Suratizin = db.define('surat_izin', {
     },
     userId: {
         type: DataTypes.INTEGER, // Ubah tipe data sesuai dengan tipe data primary key di tabel Users
-        allowNull: false,
+        allowNull: true,
         validate: {
             notEmpty: true,
         }
     },
-    departemen: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        validate: {
-            notEmpty: true
-        }
-    },
-    tanggalExp: {
-        type: DataTypes.DATE,
+    tanggal_dibuat: {
+        type: DataTypes.DATEONLY,
         allowNull: false,
         validate: {
             notEmpty: true,
             isDate: true
         }
     },
-    reminder: {
-        type: DataTypes.DATE,
+    tanggal_berakhir: {
+        type: DataTypes.DATEONLY,
         allowNull: false,
         validate: {
             notEmpty: true,
             isDate: true
         }
     },
-    url: {
+    payment_media: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+            len: [3, 100]
+        }
+    },
+    remark: {
+        type: Sequelize.STRING,
+        allowNull: false,
+        validate: {
+            notEmpty: true,
+            len: [3, 100]
+        }
+    },
+    reminder1: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+        validate: {
+            isDate: true
+        }
+    },
+    reminder2: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+    },
+    reminder3: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+    },
+    reminder4: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+    },
+    reminder5: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+    },
+    reminder6: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+    },
+    reminder7: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+    },
+    reminder8: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+    },
+    reminder9: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+    },
+    reminder10: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+    },
+    reminder11: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+    },
+    reminder12: {
+        type: DataTypes.DATEONLY,
+        allowNull: true,
+    },
+    status_reminder1: {
         type: Sequelize.STRING,
         allowNull: true,
         validate: {
             notEmpty: true
         }
     },
-    uploadFile: {
+    status_reminder2: {
         type: Sequelize.STRING,
         allowNull: true,
         validate: {
             notEmpty: true
-        } // Ubah menjadi false jika file upload wajib diisi
-    }
+        }
+    },
+    status_reminder3: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    status_reminder4: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    status_reminder5: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    status_reminder6: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    status_reminder7: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    status_reminder8: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    status_reminder9: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    status_reminder10: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    status_reminder11: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    status_reminder12: {
+        type: Sequelize.STRING,
+        allowNull: true,
+        validate: {
+            notEmpty: true
+        }
+    },
+    name: DataTypes.STRING,
+    image: DataTypes.STRING,
+    url: DataTypes.STRING,
+
 }, {
     freezeTableName: true
 });
@@ -82,3 +252,4 @@ Users.hasMany(Suratizin);
 Suratizin.belongsTo(Users, { foreignKey: 'userId' });
 
 export default Suratizin;
+

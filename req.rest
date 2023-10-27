@@ -4,10 +4,11 @@ Content-Type: application/json
 
 {
     "nama": "admin",
-    "email": "maua1@gmail.com",
+    "email": "admin@gmail.com",
     "password": "admin1",
     "confPassword":"admin1",
-    "role": "Admin"
+    "departemen":"SPM",
+    "role": "admin"
 }
 //LOGIN ADMIN
 ###
@@ -15,14 +16,16 @@ POST http://localhost:5000/login
 Content-Type: application/json 
 
 {
-    "nama": "namad",
-    "password": "gaulsedunia"
+    "email": "admin@gmail.com",
+    "password": "admin1"
 }
 
 ###
 //GET ALL USER 
-GET http://localhost:5000/users
+GET http://localhost:5000/users/81c98164-aafb-4976-8d6d-e55d3b2631d5
 
+###
+GET http://localhost:5000/departemen
 ###
 //GET USER BY ID
 GET http://localhost:5000/users/a8f271e5-b3eb-4f65-abf5-00a67b73344e
@@ -49,11 +52,14 @@ POST http://localhost:5000/suratizin
 Content-Type: application/json 
 
 {
-    "nama_perizinan": "namad",
-    "pic": "maulfcom",
+    "nama_perizinan": "JAGO",
+    "pic": "AYdfs",
+    "nomor_perizinan": "099999",
+    "from_email": "11201004@student.itk.ac.id",
     "departemen": "gaulsedunia",
-    "tanggalExp":"2023-08-10",
-    "reminder":"2023-08-10",
+    "tanggal_dibuat":"2023-08-10",
+    "tanggal_berakhir":"2023-08-23",
+    "image":"image",
     "uploadFile": "uploadFile"
 }
 
@@ -62,7 +68,7 @@ Content-Type: application/json
 GET http://localhost:5000/suratizin
 ###
 //GET SURAT IZIN BY ID
-GET http://localhost:5000/suratizin/6aba3c2e-4f69-441e-8f3f-123b4ff90642
+GET http://localhost:5000/suratizin/91fc431d-bda3-413b-9279-9694c3111ec6
 Content-Type: application/json 
 
 ###
